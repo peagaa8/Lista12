@@ -1,0 +1,29 @@
+import java.util.Scanner;
+
+public class ClasseRetangulo {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Digite o comprimento do local (em metros): ");
+        double comprimento = sc.nextDouble();
+        System.out.print("Digite a largura do local (em metros): ");
+        double largura = sc.nextDouble();
+
+        Retangulo local = new Retangulo(comprimento, largura);
+
+        double area = local.calcularArea();
+        double perimetro = local.calcularPerimetro();
+
+        System.out.println("Área do local: " + area + " m²");
+        System.out.println("Perímetro do local: " + perimetro + " metros");
+
+        double tamanhoPiso = 1.0;
+        double quantidadePisos = area / tamanhoPiso;
+
+        double tamanhoRodape = 1.0;
+        double quantidadeRodapes = perimetro / tamanhoRodape;
+
+        System.out.println("Quantidade de pisos necessários: " + Math.ceil(quantidadePisos));
+        System.out.println("Quantidade de rodapés necessários: " + Math.ceil(quantidadeRodapes));
+    }
+}
